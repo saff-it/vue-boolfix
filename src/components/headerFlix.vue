@@ -1,13 +1,23 @@
 <template>
   <header>
-    ciao
+    <input v-model="inputText" type="text" placeholder="cerca" >
+    <button @keyup.enter="$emit('search', inputText)">Invia</button>
   </header>
 </template>
 
 <script>
+
 export default {
 
+  data: function () {
+    return {
+      inputText: '',
+    }
+  }
+
+
 }
+
 </script>
 
 <style lang="scss">
