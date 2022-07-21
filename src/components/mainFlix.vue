@@ -19,11 +19,6 @@
 export default {
   props: ['films'],
 
-  flagLang: [
-    'es',
-    'it',
-  ],
-  
 }
 </script>
 

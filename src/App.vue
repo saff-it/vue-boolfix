@@ -18,7 +18,9 @@ export default {
   data: function() {
     return{
       dataMovies: [],
+      dataSeries: [],
     }
+
   },
 
   name: 'App',
@@ -39,10 +41,22 @@ export default {
         })
     },
 
+    getDataSeries(search) {
+      axios.get(`https://api.themoviedb.org/3/search/tv?api_key=76a0f6b38de7b73cfe6c7dd173889613&query=${search}`)
+        .then((result) => {
+          this.dataSeries = result.data.results;
+          console.log(result.data.results);
+        })
+        .catch((error) => {
+          console.log(error);
+        })
+    },
+
   },
 
   created() {
     this.getDataMovies();
+    this.getDataSeries();
   },
 
 
