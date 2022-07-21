@@ -1,6 +1,6 @@
 <template>
   <header>
-    
+    ciao
   </header>
 </template>
 
@@ -10,6 +10,6 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
 
 </style>
