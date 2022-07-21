@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <headerFlix @search="getDataMovies" />
-    <mainFlix />
+    <mainFlix v-for="(movie,index) in dataMovies" :key="index"
+        :films="movie"
+    />
     
   </div>
 </template>
@@ -36,8 +38,6 @@ export default {
           console.log(error);
         })
     },
-
-    
 
   },
 
