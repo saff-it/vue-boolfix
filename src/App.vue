@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <headerFlix @search="" />
+    <headerFlix @search="getFilteredMovies" />
     <mainFlix />
     
   </div>
@@ -30,13 +30,22 @@ export default {
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=76a0f6b38de7b73cfe6c7dd173889613')
         .then((result) => {
           this.dataMovies = result.data.results;
+          console.log(result.data.results);
         })
         .catch((error) => {
           console.log(error);
         })
-    }
+    },
 
-    
+    getFilteredMovies(needle) {
+      const filteredMovies = [...this.dataMovies];
+      console.log(filteredMovies);
+
+      return filteredMovies.filter(
+        (movie) => movie.name.toLowerCase().includes(needle)
+      );
+
+    },
 
   },
 

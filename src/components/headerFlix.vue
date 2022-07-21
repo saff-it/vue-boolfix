@@ -1,7 +1,7 @@
 <template>
   <header>
     <input v-model="inputText" type="text" placeholder="cerca" >
-    <button @keyup.enter="$emit('search', inputText)">Invia</button>
+    <button @click="$emit('search', inputText)">Invia</button>
   </header>
 </template>
 
