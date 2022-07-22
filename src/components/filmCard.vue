@@ -1,6 +1,10 @@
 <template>
 
     <li>
+        <div>
+          <img :src="`https://image.tmdb.org/t/p/w342/${singleFilm.poster_path}`" :alt="singleFilm.title">
+        </div>
+
         <h5>{{ singleFilm.title }}</h5>
         <h5>{{ singleFilm.original_title }}</h5>
 
