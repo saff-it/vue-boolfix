@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <headerFlix @search="getDataMovies" />
+    <headerFlix @search="getDataMoviesAndSeries" />
     <mainFlix :listFilms="dataMovies" :listSeries='dataSeries'/>
     
   </div>
@@ -52,16 +52,14 @@ export default {
         })
     },
 
-    
+    getDataMoviesAndSeries(search) {
+      this.getDataMovies(search);
+      this.getDataSeries(search);
+    }
 
   },
 
-  created() {
-    this.getDataMovies();
-    this.getDataSeries();
-  },
-
-
+  
 }
 </script>
 
