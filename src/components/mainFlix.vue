@@ -4,7 +4,6 @@
       <filmCard  v-for="film in listFilms" :key="film.id"
                 :singleFilm="film"
       />
-      
       <serieCard v-for="serie in listSeries" :key="serie.id"
                 :singleSerie="serie"
       />

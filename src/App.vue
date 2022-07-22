@@ -17,7 +17,7 @@ export default {
     return{
       dataMovies: [],
       dataSeries: [],
-      // movieAndSeriesElements: [...dataMovies,...dataSeries],
+      
       
     }
 
