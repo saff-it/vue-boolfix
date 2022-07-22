@@ -12,14 +12,23 @@
         <h5 v-else-if="singleFilm.original_language === 'it'"> <img src="../assets/img/it.png" alt="it flag"></h5>
         <h5 v-else>{{ singleFilm.original_language }}</h5>
 
-        <h5>{{ singleFilm.vote_average }}</h5>
+        <i v-for="index in getNumber(singleFilm.vote_average)" :key="index" class="fa-solid fa-star"></i>
+
     </li>
 
 </template>
 
 <script>
 export default {
-  props: ['singleFilm'],
+  props: [
+    'singleFilm'
+  ],
+
+  methods: {
+        getNumber(number) {
+            return Math.round(number / 2);
+        }
+    },  
 
 }
 </script>
