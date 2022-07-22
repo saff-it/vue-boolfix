@@ -2,7 +2,7 @@
 
     <li>
         <div>
-          <img :src="`https://image.tmdb.org/t/p/w342/${singleFilm.poster_path}`" :alt="singleFilm.title">
+          <img :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
         </div>
 
         <h5>{{ singleFilm.title }}</h5>
