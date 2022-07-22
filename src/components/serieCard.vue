@@ -11,11 +11,8 @@
         <h5 v-if="singleSerie.original_language === 'en'"> <img src="../assets/img/en.png" alt="uk flag"></h5>
         <h5 v-else-if="singleSerie.original_language === 'it'"> <img src="../assets/img/it.png" alt="it flag"></h5>
         <h5 v-else>{{ singleSerie.original_language }}</h5>
-
-        <h5>{{ singleSerie.vote_average }}</h5>
-
         
-        <i v-for="(star, index) in stars" :key="index" class="fa-solid fa-star"></i>
+        <i v-for="index in getNumber(singleSerie.vote_average)" :key="index" class="fa-solid fa-star"></i>
         
         
     </li>
@@ -42,13 +39,14 @@ export default {
     },
         
     methods: {
-        voteToStar() {
-            Math.round(this.singleSerie.vote_average / 2);
+        getNumber(number) {
+            return Math.round(number / 2);
 
         }
+        
     },
 
-
+    
    
 }
 
