@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <headerFlix @search="getDataMovies" />
-    <mainFlix :listFilms="dataMovies"/>
+    <mainFlix :filmTvShowElements="seriesMoviesElements"/>
     
   </div>
 </template>
@@ -15,8 +15,8 @@ import mainFlix from './components/mainFlix.vue'
 export default {
   data: function() {
     return{
-      dataMovies: [],
-      dataSeries: [],
+      seriesMoviesElements: [],
+      
     }
 
   },
@@ -31,7 +31,7 @@ export default {
     getDataMovies(search) {
       axios.get(`https://api.themoviedb.org/3/search/movie?api_key=76a0f6b38de7b73cfe6c7dd173889613&query=${search}`)
         .then((result) => {
-          this.dataMovies = result.data.results;
+          this.seriesMoviesElements = result.data.results;
           console.log(result.data.results);
         })
         .catch((error) => {
@@ -42,7 +42,7 @@ export default {
     getDataSeries(search) {
       axios.get(`https://api.themoviedb.org/3/search/tv?api_key=76a0f6b38de7b73cfe6c7dd173889613&query=${search}`)
         .then((result) => {
-          this.dataSeries = result.data.results;
+          this.seriesMoviesElements = result.data.results;
           console.log(result.data.results);
         })
         .catch((error) => {

@@ -1,11 +1,9 @@
 <template>
   <div>
     <ul>
-      <filmCard  v-for="film in listFilms" :key="film.id"
-            :singleFilm="film">
-          
-      </filmCard>
-      
+      <filmCard  v-for="element in filmTvShowElements" :key="element.id"
+                :singleElement="element"
+      />    
     </ul>
 
 
@@ -18,7 +16,9 @@ import filmCard from './filmCard.vue'
 
 
 export default {
-  props: ['listFilms'],
+  props: [
+    'filmTvShowElements',
+    ],
 
   name: 'App',
     components: {
