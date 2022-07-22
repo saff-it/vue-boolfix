@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <headerFlix @search="getDataMovies" />
-    <mainFlix v-for="(movie,index) in dataMovies" :key="index"
-        :films="movie"
-    />
+    <mainFlix :listFilms="dataMovies"/>
     
   </div>
 </template>

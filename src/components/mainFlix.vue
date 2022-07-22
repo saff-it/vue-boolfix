@@ -1,14 +1,11 @@
 <template>
   <div>
     <ul>
-      <li>{{films.title}}</li>
-      <li>{{films.original_title}}</li>
-
-      <li v-if="films.original_language === 'en'" > <img src="../assets/img/en.png" alt="uk flag"></li>
-      <li v-else-if="films.original_language === 'it'" > <img src="../assets/img/it.png" alt="it flag"></li>
-      <li v-else>{{films.original_language}}</li>
-
-      <li>{{films.vote_average}}</li>
+      <filmCard  v-for="film in listFilms" :key="film.id"
+            :singleFilm="film">
+          
+      </filmCard>
+      
     </ul>
 
 
@@ -16,8 +13,18 @@
 </template>
 
 <script>
+import filmCard from './filmCard.vue'
+
+
+
 export default {
-  props: ['films'],
+  props: ['listFilms'],
+
+  name: 'App',
+    components: {
+    filmCard,
+    
+  },
 
 }
 </script>
