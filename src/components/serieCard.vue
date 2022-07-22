@@ -13,16 +13,46 @@
         <h5 v-else>{{ singleSerie.original_language }}</h5>
 
         <h5>{{ singleSerie.vote_average }}</h5>
-    </li>
 
+        
+        <i v-for="(star, index) in stars" :key="index" class="fa-solid fa-star"></i>
+        
+        
+    </li>
 
 </template>
 
 <script>
-export default {
-  props: ['singleSerie'],
 
+
+
+export default {
+    props: [
+        'singleSerie'
+    ],
+
+    data: function () {
+        return {
+            stars: [
+                '1',
+                '2',
+                '3',
+            ],
+        }
+    },
+        
+    methods: {
+        voteToStar() {
+            Math.round(this.singleSerie.vote_average / 2);
+
+        }
+    },
+
+
+   
 }
+
+
 </script>
 
 <style>

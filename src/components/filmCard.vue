@@ -15,7 +15,6 @@
         <h5>{{ singleFilm.vote_average }}</h5>
     </li>
 
-
 </template>
 
 <script>
