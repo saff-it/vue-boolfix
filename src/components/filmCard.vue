@@ -3,7 +3,8 @@
   <li class="ms_li-hover" @mouseover="active = false" @mouseleave="active = true">
 
     <div class="ms_poster-container" v-show="active === true">
-          <img class="poster" :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
+          <img v-if="singleFilm.poster_path !== null" class="poster" :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
+          <img v-else class="poster" :src="`https://via.placeholder.com/250x375/000000/FF0000/?text=${singleFilm.title}`" alt="null">
     </div>
 
     <div class="ms_text-container" v-show="active === false">
@@ -12,14 +13,15 @@
       <h5> <span> Titolo Originale: </span>{{ singleFilm.original_title }}</h5>
 
       <p>{{ singleFilm.overview }}</p>
-
+      
+      <!-- v-if cicle  -->
       <div class="ms_flag-container" v-if="singleFilm.original_language === 'en'"> 
         <img src="../assets/img/en.png" alt="uk flag">
       </div>
       <div class="ms_flag-container" v-else-if="singleFilm.original_language === 'it'">
         <img src="../assets/img/it.png" alt="it flag">
       </div>
-      <div class="ms_flag-container" v-else>{{ singleFilm.original_language }}</div>
+      <div class="ms_flag-container text-white text-uppercase" v-else>{{ singleFilm.original_language }}</div>
 
       <i v-for="id in getNumber(singleFilm.vote_average)" :key="id" class="fa-solid fa-star"></i>
 
