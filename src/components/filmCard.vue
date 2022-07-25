@@ -2,11 +2,17 @@
 
   <li>
 
-    <div class="ms_poster-container">
-      <img :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
+    <div class="ms_poster-container"
+         v-show="active == false"
+         @mouseover="getNumber()" 
+    >
+          <img :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
     </div>
 
-    <div class="ms_text-container">
+    <div class="ms_text-container"
+         v-show="active"
+         @mouseover="getNumber()"   
+    >
 
       <h5> <span> Titolo: </span>{{ singleFilm.title }}</h5>
       <h5> <span> Titolo Originale: </span>{{ singleFilm.original_title }}</h5>
@@ -35,11 +41,24 @@ export default {
     'singleFilm'
   ],
 
+  data: function() {
+    return{
+      active: false,
+    }
+
+  },
+
   methods: {
     getNumber(number) {
       return Math.round(number / 2);
+    },
+
+    setActive() {
+      this.active = !this.active;
     }
   },
+
+
 
 }
 </script>
@@ -99,13 +118,6 @@ li {
     }
   }
 
- .ms_poster-container:hover + .ms_text-container{
-    display: block;
-  }
 
-  .ms_poster-container:hover {
-    display: none;
-
-  }
 }
 </style>
