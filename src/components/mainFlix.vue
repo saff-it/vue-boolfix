@@ -1,21 +1,26 @@
 <template>
-  <div>
+<div class="container-fluid bg-secondary">
 
-    <h2 v-if="listFilms.length">Movies</h2>
-    <ul>
-      <filmCard  v-for="film in listFilms" :key="film.id"
-                :singleFilm="film"
-      />
-    </ul>
+    <section class="ms_movies">
+      <h2 v-if="listFilms.length">Movies</h2>
+      <ul>
+        <filmCard  v-for="film in listFilms" :key="film.id"
+                  :singleFilm="film"
+        />
+      </ul>
+    </section>
 
-    <h2 v-if="listSeries.length">Series</h2>
-    <ul>
-      <serieCard v-for="serie in listSeries" :key="serie.id"
-                :singleSerie="serie"
-      />
-    </ul>
+    <section class="ms_series">
+      <h2 v-if="listSeries.length">Series</h2>
+      <ul>
+        <serieCard v-for="serie in listSeries" :key="serie.id"
+                  :singleSerie="serie"
+        />
+      </ul>
+    </section>    
 
-  </div>
+</div>
+  
 </template>
 
 <script>
@@ -41,11 +46,14 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
-ul{
+
+.ms_movies ul{
   list-style: none;
   display: flex;
+  flex-wrap: wrap;
+ 
 }
 
 </style>

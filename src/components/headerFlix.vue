@@ -1,16 +1,13 @@
 <template>
   <header class="container-fluid bg-dark">
 
-    <div class="container">
       <h1>boolflix</h1>
 
       <div class="ms_search-tools">
         <input v-model="inputText" type="text" placeholder="cerca" >
         <button @click="$emit('search', inputText)">Invia</button>
-      </div>
-      
-    </div>
-    
+      </div> 
+
   </header>
 </template>
 
@@ -29,9 +26,9 @@ export default {
 
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 
-.container{
+.container-fluid{
   display: flex;
   justify-content: space-between;
   align-items: center;

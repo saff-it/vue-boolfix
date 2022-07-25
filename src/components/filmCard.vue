@@ -37,7 +37,7 @@ export default {
 <style lang="scss">
 
 li{
-  // display: inline-block;
+  width: calc(100% / 6);
 }
 
 
