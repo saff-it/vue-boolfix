@@ -1,23 +1,33 @@
 <template>
 
-    <li>
-        
-        <div class="ms_poster-container">
-          <img :src="`https://image.tmdb.org/t/p/w185/${singleSerie.poster_path}`" :alt="singleSerie.title">
-        </div>
+  <li class="ms_li-hover" @mouseover="active = false" @mouseleave="active = true">
 
-        <h5> <span> Titolo: </span>{{ singleSerie.title }}</h5>
-        <h5> <span> Titolo Originale: </span>{{ singleSerie.original_title }}</h5>
+    <div class="ms_poster-container" v-show="active === true">
+          <img v-if="singleSerie.poster_path !== null" class="poster" :src="`https://image.tmdb.org/t/p/w185/${singleSerie.poster_path}`" :alt="singleSerie.name">
+          <img v-else class="poster" :src="`https://via.placeholder.com/250x375/000000/FF0000/?text=${singleSerie.name}`" alt="null">
+    </div>
 
-        <p>{{singleSerie.overview}}</p>
+    <div class="ms_text-container" v-show="active === false">
 
-        <div class="ms_flag-container" v-if="singleSerie.original_language === 'en'"> <img src="../assets/img/en.png" alt="uk flag"> </div>
-        <div class="ms_flag-container" v-else-if="singleSerie.original_language === 'it'"> <img src="../assets/img/it.png" alt="it flag"> </div>
-        <div class="ms_flag-container" v-else>{{ singleSerie.original_language }}</div>
+      <h5> <span> Titolo: </span>{{ singleSerie.name }}</h5>
+      <h5> <span> Titolo Originale: </span>{{ singleSerie.original_name }}</h5>
 
-        <i v-for="id in getNumber(singleSerie.vote_average)" :key="id" class="fa-solid fa-star"></i>
+      <p>{{ singleSerie.overview }}</p>
+      
+      <!-- v-if cicle  -->
+      <div class="ms_flag-container" v-if="singleSerie.original_language === 'en'"> 
+        <img src="../assets/img/en.png" alt="uk flag">
+      </div>
+      <div class="ms_flag-container" v-else-if="singleSerie.original_language === 'it'">
+        <img src="../assets/img/it.png" alt="it flag">
+      </div>
+      <div class="ms_flag-container text-white text-uppercase" v-else>{{ singleSerie.original_language }}</div>
 
-    </li>
+      <i v-for="id in getNumber(singleSerie.vote_average)" :key="id" class="fa-solid fa-star"></i>
+
+    </div>
+
+  </li>
 
 </template>
 
@@ -27,66 +37,76 @@ export default {
     'singleSerie'
   ],
 
+  data: function() {
+    return{
+      active: true,
+    }
+
+  },
+
   methods: {
-        getNumber(number) {
-            return Math.round(number / 2);
-        }
-    },  
+    getNumber(number) {
+      return Math.round(number / 2);
+    }
+  },
+
 
 }
 </script>
 
 <style lang="scss" scoped>
 
-li{
+li.ms_li-hover {
   width: calc(100% / 5 - 20px);
   margin: 0 10px 30px 10px;
   border: 2px solid red;
   background-color: black;
-  
-  div.ms_poster-container{
+  cursor: pointer;
+
+  .ms_poster-container {
     width: 100%;
 
-    img{
-    width: 100%;
-    }
-  }
-
-  div.ms_flag-container{
-    width: 12%;
-    display: inline-block;
-    margin: 5px 5px 15px 5px;
-
-
-    img{
+    img {
       width: 100%;
     }
   }
 
-  i{
-    color: orange;
-  }
+  .ms_flag-container {
+    width: 12%;
+    display: inline-block;
+    margin: 5px 5px 15px 15px;
 
-  h5{
-    font-size: 0.8rem;
-    color: white;
-    margin: 5px 5px 0 5px;
-    font-weight: lighter;
 
-    span{
-    font-size: 0.9rem;
-    font-weight: bold;
-
+    img {
+      width: 100%;
     }
   }
 
-  p{
-    margin: 10px 5px;
-    font-size: 0.8rem;
-    color: rgb(114, 111, 111);
+  .ms_text-container{
+    i {
+      color: orange;
+    }
+
+    h5 {
+      font-size: 0.8rem;
+      color: white;
+      margin: 5px 15px 0 15px;
+      font-weight: lighter;
+
+      span {
+        font-size: 0.9rem;
+        font-weight: bold;
+
+      }
+    }
+
+    p {
+      margin: 10px 15px;
+      font-size: 0.8rem;
+      color: rgb(114, 111, 111);
+      text-align: justify;
+    }
   }
-  
+
 }
-
-
 </style>
