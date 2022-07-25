@@ -15,7 +15,7 @@
         <div class="ms_flag-container" v-else-if="singleSerie.original_language === 'it'"> <img src="../assets/img/it.png" alt="it flag"> </div>
         <div class="ms_flag-container" v-else>{{ singleSerie.original_language }}</div>
 
-        <i v-for="index in getNumber(singleSerie.vote_average)" :key="index" class="fa-solid fa-star"></i>
+        <i v-for="id in getNumber(singleSerie.vote_average)" :key="id" class="fa-solid fa-star"></i>
 
     </li>
 

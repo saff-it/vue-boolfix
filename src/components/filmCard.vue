@@ -1,18 +1,12 @@
 <template>
 
-  <li>
+  <li class="ms_li-hover" @mouseover="active = false" @mouseleave="active = true">
 
-    <div class="ms_poster-container"
-         v-show="active == false"
-         @mouseover="getNumber()" 
-    >
-          <img :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
+    <div class="ms_poster-container" v-show="active === true">
+          <img class="poster" :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
     </div>
 
-    <div class="ms_text-container"
-         v-show="active"
-         @mouseover="getNumber()"   
-    >
+    <div class="ms_text-container" v-show="active === false">
 
       <h5> <span> Titolo: </span>{{ singleFilm.title }}</h5>
       <h5> <span> Titolo Originale: </span>{{ singleFilm.original_title }}</h5>
@@ -27,7 +21,7 @@
       </div>
       <div class="ms_flag-container" v-else>{{ singleFilm.original_language }}</div>
 
-      <i v-for="index in getNumber(singleFilm.vote_average)" :key="index" class="fa-solid fa-star"></i>
+      <i v-for="id in getNumber(singleFilm.vote_average)" :key="id" class="fa-solid fa-star"></i>
 
     </div>
 
@@ -43,7 +37,7 @@ export default {
 
   data: function() {
     return{
-      active: false,
+      active: true,
     }
 
   },
@@ -51,27 +45,23 @@ export default {
   methods: {
     getNumber(number) {
       return Math.round(number / 2);
-    },
-
-    setActive() {
-      this.active = !this.active;
     }
   },
-
 
 
 }
 </script>
 
 <style lang="scss" scoped>
-li {
+
+li.ms_li-hover {
   width: calc(100% / 5 - 20px);
   margin: 0 10px 30px 10px;
   border: 2px solid red;
   background-color: black;
   cursor: pointer;
 
-  div.ms_poster-container {
+  .ms_poster-container {
     width: 100%;
 
     img {
@@ -79,7 +69,7 @@ li {
     }
   }
 
-  div.ms_flag-container {
+  .ms_flag-container {
     width: 12%;
     display: inline-block;
     margin: 5px 5px 15px 15px;
@@ -91,8 +81,6 @@ li {
   }
 
   .ms_text-container{
-    display: none;
-
     i {
       color: orange;
     }
@@ -117,7 +105,6 @@ li {
       text-align: justify;
     }
   }
-
 
 }
 </style>
