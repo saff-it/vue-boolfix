@@ -6,8 +6,10 @@
           <img :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
         </div>
 
-        <h5>{{ singleFilm.title }}</h5>
-        <h5>{{ singleFilm.original_title }}</h5>
+        <h5> <span> Titolo: </span>{{ singleFilm.title }}</h5>
+        <h5> <span> Titolo Originale: </span>{{ singleFilm.original_title }}</h5>
+
+        <p>{{singleFilm.overview}}</p>
 
         <div class="ms_flag-container" v-if="singleFilm.original_language === 'en'"> <img src="../assets/img/en.png" alt="uk flag"> </div>
         <div class="ms_flag-container" v-else-if="singleFilm.original_language === 'it'"> <img src="../assets/img/it.png" alt="it flag"> </div>
@@ -37,14 +39,13 @@ export default {
 <style lang="scss" scoped>
 
 li{
-  width: calc(100% / 6 - 20px);
+  width: calc(100% / 5 - 20px);
   margin: 0 10px 30px 10px;
-  border: 2px solid white;
+  border: 2px solid red;
   background-color: black;
   
   div.ms_poster-container{
     width: 100%;
-    padding: 5px;
 
     img{
     width: 100%;
@@ -52,9 +53,10 @@ li{
   }
 
   div.ms_flag-container{
-    width: 15%;
+    width: 12%;
     display: inline-block;
-    margin-right: 5px;
+    margin: 5px 5px 15px 5px;
+
 
     img{
       width: 100%;
@@ -64,6 +66,26 @@ li{
   i{
     color: orange;
   }
+
+  h5{
+    font-size: 0.8rem;
+    color: white;
+    margin: 5px 5px 0 5px;
+    font-weight: lighter;
+
+    span{
+    font-size: 0.9rem;
+    font-weight: bold;
+
+    }
+  }
+
+  p{
+    margin: 10px 5px;
+    font-size: 0.8rem;
+    color: rgb(114, 111, 111);
+  }
+  
 }
 
 
