@@ -1,5 +1,5 @@
 <template>
-<div class="container-fluid bg-secondary">
+<div class="container-fluidtrono ">
 
     <section class="ms_movies">
       <h2 v-if="listFilms.length">Movies</h2>
@@ -48,8 +48,16 @@ export default {
 
 <style lang="scss" scoped>
 
+h2{
+  text-align: center;
+  text-transform: uppercase;
+  color: red;
+  font-weight: bold;
+  padding: 20px 0;
+}
 
-.ms_movies ul{
+.ms_movies ul,
+.ms_series ul{
   list-style: none;
   display: flex;
   flex-wrap: wrap;
