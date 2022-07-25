@@ -50,6 +50,7 @@ li {
   margin: 0 10px 30px 10px;
   border: 2px solid red;
   background-color: black;
+  cursor: pointer;
 
   div.ms_poster-container {
     width: 100%;
@@ -98,11 +99,13 @@ li {
     }
   }
 
-  .ms_text-container:hover{
+ .ms_poster-container:hover + .ms_text-container{
     display: block;
   }
 
+  .ms_poster-container:hover {
+    display: none;
 
-
+  }
 }
 </style>
