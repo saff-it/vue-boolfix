@@ -22,8 +22,6 @@
 
 <script>
 
-
-
 export default {
     props: [
         'singleSerie'
@@ -33,13 +31,13 @@ export default {
         getNumber(number) {
             return Math.round(number / 2);
         }
-    },
-
-    
+    },   
 }
-
 
 </script>
 
-<style>
+<style lang="scss">
+
+
+
 </style>

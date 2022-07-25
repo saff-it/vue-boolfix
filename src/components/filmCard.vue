@@ -1,8 +1,7 @@
 <template>
 
     <li>
-        <h2>Movies</h2>
-
+        
         <div>
           <img :src="`https://image.tmdb.org/t/p/w185/${singleFilm.poster_path}`" :alt="singleFilm.title">
         </div>
@@ -35,5 +34,13 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss">
+
+li{
+  // display: inline-block;
+}
+
+
+
+
 </style>
