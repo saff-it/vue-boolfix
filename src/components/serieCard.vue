@@ -1,6 +1,8 @@
 <template>
 
     <li>
+        <h2>Tv Series</h2>
+
         <div>
           <img :src="`https://image.tmdb.org/t/p/w185/${singleSerie.poster_path}`" :alt="singleSerie.title">
         </div>
@@ -27,12 +29,6 @@ export default {
         'singleSerie'
     ],
 
-    data: function () {
-        return {
-            
-        }
-    },
-        
     methods: {
         getNumber(number) {
             return Math.round(number / 2);
